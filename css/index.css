@@ -65,3 +65,15 @@ td:nth-child(5){
     background-color: rgb(2, 2, 119);
     border-radius: 20px;
 }
+
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #333;
+    margin: 0 10px;
+  }
