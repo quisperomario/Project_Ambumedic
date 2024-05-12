@@ -101,3 +101,87 @@ hr{
     padding-left: 10vw;
     
 }
+
+/*style para about*/
+
+.about-somos{
+    display: flex;
+    padding: 1% 3%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.about-equipo img{
+    border-radius: 50px 0 0 50px;
+    width: 100%;
+}
+.mision-vision{
+    margin-top: 2vw;
+    background-color: blue;
+    padding: 2vw 0vw;
+    color: white;
+}
+.mision, .vision{
+    text-align: center;
+    padding: 0vw 6vw;
+    font-weight: bold;
+}
+.clientes-aliados{
+    padding: 3vw 0;
+}
+.clientes{
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    width: fit-content;
+    padding: 1vw 3vw 1vw 2vw;
+    border-radius: 0 50px 50px 0;
+}
+.aliados{
+    position: absolute;
+    right: 0;
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    width: fit-content;
+    padding: 1vw 3vw 1vw 2vw;
+    border-radius:50px 0 0 50px;
+}
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-item {
+    flex: 0 0 33.333333%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .carousel-item img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .carousel-control-prev {
+    left: 1rem;
+  }
+  
+  .carousel-control-next {
+    right: 1rem;
+  }
