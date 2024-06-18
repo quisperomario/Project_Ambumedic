@@ -3,48 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cotiza.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ambumedic</title>
 </head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <div id="banner">
-        <h1>AMBUMEDIC</h1>
+<body class="body-index">
+    <div class="cabecera">
+    <a href="#" class="whatsapp-float" >
+        <img src="imagenes/llamada.png" alt="llamada">
+        <h4>Llamar</h4>
+    </a>
+    <a href="cotiza.html" class="cotiza-float" >
+        
+        <img src="imagenes/cotizar.png" alt="cotiza">
+        <h4>Cotizar</h4>
+    </a>
+    <div id="banner" class="banner">
+        <div class="banner-logo"><h1>AMBUMEDIC</h1></div>
+        
+        
     </div>
     <div id="menu">
         <table class="menu-tabla">
             <thead>
-                <td>INICIO</td>
-                <td>QUIENES SOMOS</td>
-                <td>SERVICIOS</td>
-                <td>CONTACTOS</td>
-                <td>LOGIN</td>
+                <td><a href="index.html">INICIO</a></td>
+                <td><a href="about.html">QUIENES SOMOS</a></td>
+                <td><a href="servicios.html">SERVICIOS</a></td>
+                <td><a href="#">CONTACTOS</a></td>
+                <td><a href="#">LOGIN</a></td>
             </thead>
         </table>
     </div>
+</div>
     <div class="row primera-imagen">
         <div class="segundo">
-            <div class="imagen-inicio col-md-5">
+            <div class="imagen-inicio-text">
                 <h2>NUESTROS SERVICIOS</h2>
                 <h3>ESTÁN DISEÑADOS PARA SATISFACER </br>PERFECTAMENTE TUS NECESIDADES</h3>
-                <BUtton>CONTACTANOS POR WHATSAPP</BUtton>
+                <a href="https://wa.me/1234567890" class="bContacto" target="_blank">CONTACTANOS POR WHATSAPP</a>
             </div>
         </div>
     </div>
     
-    <div class="row terceros">
+    <div class="terceros">
         <center><h3>NUESTROS VEHICULOS</h3></center>
-        <div class="col-md-3 circulo"><center><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Carroceria de Fabricación Especial.</center></div>
-        <div class="col-md-3 circulo"><center><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Modernos y Equipados.</center></div>
-        <div class="col-md-3 circulo"><center><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Equipamiento Importado para su Comodidad.</center></div>
-        <div class="col-md-3 circulo"><center><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Las Mejores Marcas.</center></div>
-    <center> <BUtton>MÁS DE NUESTROS SERVICIOS</BUtton>
-    </center>
+        <div class="img-circulo">
+            <div class="circulo"><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Carroceria de Fabricación Especial.</div>
+            <div class="circulo"><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Modernos y Equipados.</div>
+            <div class="circulo"><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Equipamiento Importado para su Comodidad.</div>
+            <div class="circulo"><img src="imagenes/IMG_20220821_143901.jpg" alt="" height="200" width="200"></br>Las Mejores Marcas.</div>
+        </div>
+        <center> <button onclick="verMas()">MÁS DE NUESTROS VEHICULOS</button>
+        </center>
+        <div id="masInfo" class="masInfo">
+            <hr>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        AMBULANCIA #1<br/>
+                        <img src="imagenes/ambulancia1.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        AMBULANCIA #2<br/>
+                        <img src="imagenes/ambulancia2.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Carrocería de
+                        fabricación Especial.</td>
+                    <td><img src="imagenes/carroceria.png" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="imagenes/equipos.png" alt=""></td>
+                    <td>Modernos
+                        y
+                        Equipados.</td>
+                </tr>
+                <tr>
+                    <td>Equipamiento importado
+                        para su comodidad.</td>
+                    <td><img src="imagenes/comodidad.png" alt=""></td>
+                </tr>
+                <tr>
+                    <td><img src="imagenes/marcas.png" alt=""></td>
+                    <td>Las mejores Marcas.</td>
+                </tr>
+            </table>
+        </div>
     </div>
+    <hr>
+    <div class="tarifas">
+        <h1>TARIFAS Y SERVICIOS</h1>
+        <h3>LUGARES DE CERCANÍA <br/>Medellín, Bello, Itagüí, Envigado, Sabaneta.<br/><br/>LUGARES FORÁNEOS<br/>Barbosa, Girardota, Copacabana, La Estrella, Caldas, corregimientos
+            (San Antonio de Prado, Santa Helena, San Félix).<br/><br/>MUNICIPIOS CON MÁS DISTANCIA<br/>Valor por kilómetro 6,500.</h3>
+        <div class="botonesTarifas">
+            <div class=""> <h3><a href="servicios.html#basico">TRASLADO BÁSICO SENCILLO</a></h3></div>
+            <div class=""><h3><a href="servicios.html#eventos">EVENTOS</a></h3></div>
+            <div class=""><h3><a href="servicios.html#eventos">ATENCIÓN PREHOSPITALARIA</a></h3></div>
+            <div class=""><h3><a href="servicios.html#doble">TRASLADO BÁSICO DOBLE</a></h3></div>
+        </div>
+    </div>
+    <div class="pie-pagina ">
+        
+        <div class=" pie-1"> 
+            <h1>Contáctanos</h1>
+            (+57) 302 270 3568<br/>
+            (604) 6035115
+        </div>
+        <div class="siguenos">
+            <h1>Síguenos</h1>
+            <a href="#" class="redesPie">
+                <img src="imagenes/facebook.png" alt="facebook">
+            </a>
+            <a href="#" class="redesPie">
+                <img src="imagenes/instagram.png" alt="instagram">
+            </a>
+            
+        </div>
+        <div class="logo">
+            <img src="imagenes/imagen-pie.png" alt="">
+        </div>
 
+    </div>
+    <script>
+        function verMas() {
+            var additionalContent=document.getElementById("masInfo");
+        if (additionalContent.style.display === 'none' || additionalContent.style.display === '') {
+            additionalContent.style.display = 'block';
+            seeMoreButton.textContent = 'Ver menos';
+        } else {
+            additionalContent.style.display = 'none';
+            seeMoreButton.textContent = 'Ver más';
+        }
+   
+};
+    </script>
 </body>
 </html>

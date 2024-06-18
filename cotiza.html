@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cotiza.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Generar PDF de Cotización</title>
+    
+    
+</head>
+<body id="cuerpo" class="body-index">
+    <div class="cabecera">
+    <a href="#" class="whatsapp-float">
+        <img src="imagenes/llamada.png" alt="llamar">
+        <h4>Llamar</h4>
+    </a>
+    <a href="cotiza.html" class="cotiza-float">
+        
+        <img src="imagenes/cotizar.png" alt="cotizar">
+        <h4>Cotizar</h4>
+    </a>
+    <div id="banner" class="banner">
+        <div class="banner-logo"><h1>AMBUMEDIC</h1></div>
+
+        
+    </div>
+    <div id="menu">
+        <table class="menu-tabla">
+            <thead>
+                <td><a href="index.html">INICIO</a></td>
+                <td><a href="about.html">QUIENES SOMOS</a></td>
+                <td><a href="servicios.html">SERVICIOS</a></td>
+                <td><a href="#">CONTACTOS</a></td>
+                <td><a href="#">LOGIN</a></td>
+            </thead>
+        </table>
+    </div>
+    </div>
+    <div class="bg-white principal">
+        <div class="formulario row">
+            <div class="col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="attention">
+                    Atención:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="attention" type="text" placeholder="Juan Diego">
+            </div>
+            <div class="mb-4 col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="phone">
+                    Teléfono:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="7652-8888">
+            </div>
+            <div class="col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="service">
+                    Servicios:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="service" type="text" placeholder="Servicios">
+            </div>
+            <div class="col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="servicePhone">
+                    Teléfono:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="servicePhone" type="text" placeholder="2222-2222">
+            </div>
+            <div class="mb-4 col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="email">
+                    Correo Electronico:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="info@invertermijor.com">
+            </div>
+        </div>
+        <hr>
+        <button onclick="addRow()" class="agregarProductos" type="button">
+            Agregar productos
+        </button>
+        <button class="generarPdf" type="button"onclick="generatePDF()">
+            Generar PDF
+        </button>
+        <div class="section" id="table-section">
+                       
+            <div class="tooltip" id="tooltip">Este campo solo admite números</div>
+            <table id="dynamicTable">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                        <th id="accionOculto">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                            
+                    <tr>
+                        <td colspan="3" class=" px-4 py-2 text-end fw-bold">TOTAL:</td>
+                        <td  class=" px-4 py-2" id="tdSuma">$0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="flex formulario">
+            <div class="col-md-4 pr-3">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="payment">
+                    Condiciones de pago:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="payment" type="text" placeholder="Contado">
+            </div>
+            <div class="col-md-4 px-3">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="validity">
+                    Validez de la oferta:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="validity" type="text" placeholder="15 días">
+            </div>
+            <div class="col-md-4 pl-3">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="time">
+                    Tiempo:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="time" type="text" placeholder="Inmediato">
+            </div>
+        </div>
+    </div>
+
+     
+    
+    
+    <div class="pie-pagina ">
+        
+        <div class=" pie-1"> 
+            <h1>Contáctanos</h1>
+            (+57) 302 270 3568<br/>
+            (604) 6035115
+        </div>
+        <div class="siguenos">
+            <h1>Síguenos</h1>
+            <a href="#" class="redesPie">
+                <img src="imagenes/facebook.png" alt="facebook">
+            </a>
+            <a href="#" class="redesPie">
+                <img src="imagenes/instagram.png" alt="instagram">
+            </a>
+            
+        </div>
+        <div class="logo">
+            <img src="imagenes/imagen-pie.png" alt="">
+        </div>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function addRow() {
+            const table = document.getElementById("dynamicTable").getElementsByTagName('tbody')[0];
+            const rows = table.rows;
+            const newRow = table.insertRow(rows.length - 1);
+            
+            const cell1 = newRow.insertCell(0);
+            cell1.contentEditable = "true";
+            cell1.innerText = 'Producto';
+
+            const cell2 = newRow.insertCell(1);
+            addPlaceholder(cell2, '$ 0.00');
+            cell2.contentEditable = "true";
+            cell2.classList.add('editableCell');
+            cell2.addEventListener('click', showTooltip);
+            cell2.addEventListener('blur', validateAndCalculate);
+
+            const cell3 = newRow.insertCell(2);
+            cell3.contentEditable = "true";
+            addPlaceholder(cell3, '$ 0.00');
+            cell3.classList.add('editableCell');
+            cell3.addEventListener('click', showTooltip);
+            cell3.addEventListener('blur', validateAndCalculate);
+
+            const cell4 = newRow.insertCell(3);
+            cell4.innerText = '$ 000';
+            
+            const cell5 = newRow.insertCell(4);
+            cell3.classList.add('accionOculto');
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = "Eliminar";
+            deleteButton.onclick = function() {
+                table.deleteRow(newRow.rowIndex - 1);
+                actualizarTotal()
+            };
+            cell5.appendChild(deleteButton);
+            
+            imagencira.src=backgroundImage;
+        }
+        
+        
+        function validateAndCalculate(event) {
+            const cell = event.target;
+            const value = cell.innerText;
+            if (isNaN(value)&&value!='$ 0.00') {
+                cell.classList.add('error');
+            } else {
+                cell.classList.remove('error');
+            }
+
+            // Get the current row
+            const row = cell.parentNode;
+            const priceCell = row.cells[1];
+            const quantityCell = row.cells[2];
+            const totalCell = row.cells[3];
+
+            // Calculate total if both price and quantity are valid numbers
+            const price = parseFloat(priceCell.innerText);
+            const quantity = parseFloat(quantityCell.innerText);
+
+            if (!isNaN(price) && !isNaN(quantity)) {
+                totalCell.innerText = '$ '+(price * quantity);
+                sumarColumna('dynamicTable', 3);
+            } else {
+                totalCell.innerText = '0';
+            }
+            hideTooltip();
+        }
+
+
+        function showTooltip(event) {
+            const cell = event.target;
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.display = 'block';
+            const rect = cell.getBoundingClientRect();
+            tooltip.style.left = `${rect.right + window.scrollX - tooltip.offsetWidth}px`;
+            tooltip.style.top = `${rect.top + window.scrollY + tooltip.offsetHeight*0}px`;
+        }
+
+        function hideTooltip() {
+            console.log("Ingresa para esconderlo")
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.display = 'none';
+        }
+
+        function addPlaceholder(cell, text) {
+            cell.classList.add('placeholder');
+            cell.textContent = text;
+            
+            cell.addEventListener('focus', function() {
+                if (cell.textContent === text) {
+                    cell.textContent = '';
+                    cell.classList.remove('placeholder');
+                }
+            });
+
+            cell.addEventListener('blur', function() {
+                if (cell.textContent === '') {
+                    cell.textContent = text;
+                    cell.classList.add('placeholder');
+                }
+            });
+        }
+
+        function sumarColumna(tablaId, columnaIndex) {
+            const table = document.getElementById(tablaId);
+            let total = 0;
+
+            // Recorre todas las filas de la tabla excepto la última
+            for (let i = 1; i < table.rows.length - 1; i++) {
+                const cell = table.rows[i].cells[columnaIndex];
+                const value = parseFloat(cell.textContent.substring(1)) || 0;
+                total += value;
+                
+            }
+            console.log(total)
+            // Muestra el total en la última celda de la columna
+            const celdaTotal=document.getElementById("tdSuma");
+            //const lastRow = table.rows[table.rows.length ];
+            //const lastCell = table.rows[table.rows.length-1].cells[columnaIndex];
+            //console.log(lastCell.textContent)
+            celdaTotal.innerText ="$ "+ format(total);
+            hideTooltip()
+            lastCell.classList.add('total');
+        }
+
+        function format(decimal) {
+
+            if (!isNaN(decimal)) {
+                decimal = decimal.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+                decimal = decimal.split('').reverse().join('').replace(/^[\.]/, '');
+
+            } else {
+                alert('Solo se permiten numeros');
+            }
+            return decimal;
+        }
+        
+        function hideColumn(columnIndex) {
+            const table = document.getElementById('dynamicTable');
+            for (let row of table.rows) {
+                row.cells[columnIndex].style.display = 'none';
+            }
+        }
+        // Llama a la función pasando el id de la tabla y el índice de la columna (0 en este caso)
+        
+        // Add event listeners to existing editable cells
+        
+        function changeVista() {
+            // Obtén la primera hoja de estilo del documento
+            const sheet = document.styleSheets[0];
+
+            // Recorre las reglas de la hoja de estilo
+            for (let i = 0; i < sheet.cssRules.length; i++) {
+                if (sheet.cssRules[i].selectorText === '.accionOculto') {
+                    sheet.cssRules[i].style.display= 'none';// Cambia el color a rojo
+                }
+            }
+        }
+
+        function generatePDF() {
+            let content2 = '<table id="tablePdf">';
+            const table = document.getElementById('dynamicTable');
+            for (let row of table.rows) {
+                content2+='<tr>';
+                const cells = row.cells;
+                for (let j = 0; j < cells.length-1; j++) {
+                    if(cells[j].innerText=='TOTAL:'){
+                        console.log("entra a total"+cells[j+1].innerText)
+                        content2 += '<td colspan="3" class="total">'+cells[j].innerText + '</td> ';
+                        content2 += '<td colspan="3" class="total">'+cells[j+1].innerText + '</td> ';
+                        break;
+                    }
+                    else
+                    content2 += '<td>'+cells[j].innerText + '</td> ';
+                }
+                content2 += '</tr>';
+            }
+            content2+='</table>';
+            //document.getElementById("accionOculto").classList.add('accionOculto');
+            const tableSection = document.getElementById('table-section').innerHTML;
+            
+            const startRow = 0; // Índice de la fila de inicio (0-based)
+            const endRow = 3; // Índice de la fila final (0-based)
+
+            
+           
+            const content = `
+                <div class="contenidoPdf" id="contenidoPdfFull">
+                    Cordial saludo
+                    <br/>
+                    <br/>
+                    Asunto: ambulancia y Atención Prehospitalaria
+                    <br/>
+                    <br/>
+                    <p class="presentacion">
+                    La empresa AmbuMedic sas con NIT. 901526457-9 domicilio en Medellín y a quien represento. Se dedica a la prestación de servicios de ambulancia de baja complejidad habilitados con la resolución 3100 ante la Dirección seccional de salud de Antioquia y Atención prehospitalaria para el cubrimiento de proyectos, atenciones y eventos privados, así como acompañamiento en caminatas, senderismos, viajes y eventos deportivos (todas sus modalidades).
+                    </p>
+                    ${content2}
+                    <h2>Condiciones y Anotaciones</h2>
+                    <p>Las condiciones de esta cotización son las siguientes:</p>
+                    <ul>
+                        <li>Validez: 30 días a partir de la fecha de emisión.</li>
+                        <li>Pago: 50% por adelantado y 50% al finalizar el trabajo.</li>
+                        <li>Incluye impuestos y otros cargos aplicables.</li>
+                    </ul>
+                    <div class="section" id="signature">
+                        <p>Firma:</p>
+                        <p class="firma">Santiago</p>
+                    </div>
+                    </div>
+                    <div class="botones">
+                        <center>
+                            <button onclick="guardarPdf()" class="bImprimir">Guardar</button>
+                            <button onclick="Cancelar()" class="bCancelar">CANCELAR</button>
+                        </center>
+                    </div>
+                `;
+
+            const element = document.createElement('div');
+            element.id = "visualPdf";
+            element.classList.add('visualPdf');
+            element.innerHTML = content;
+            document.body.appendChild(element);
+
+            
+        }
+        
+        function guardarPdf(){
+            const element = document.getElementById("contenidoPdfFull");            
+            element.style.padding = '0';
+            element.style.margin = '10%';
+            const contenedor = document.getElementById("visualPdf");
+            const footerImageUrl = 'imagenes/IMG_20220821_143901.jpg';
+            const backgroundImage = 'imagenes/IMG_20220821_143901.jpg';
+            const bgImg = new Image();
+            bgImg.src = backgroundImage;
+            const opt = {
+                margin:       [10, 0, 30, 0], // Margins: top, left, bottom, right
+                filename:     'Cotización.pdf',
+                image:        { type: 'png', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            html2pdf()                
+    .from(element)
+    .set(opt) // Configura las opciones
+    .toPdf() // Obtiene el objeto PDF
+    .get('pdf') // Obtiene el objeto jsPDF
+    .then(pdf => {
+        const totalPages = pdf.internal.getNumberOfPages();
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const imgData = 'https://laguitarraflamenca.net/wp-content/uploads/2021/11/SI7-PRIMERA.png';
+        const img = new Image();
+        img.crossOrigin = 'Anonymous'; // Para evitar problemas de CORS
+        img.src = imgData;
+        img.onload = function() {
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i); // Configura la página actual
+                pdf.addImage(img, 'PNG', 0, 0, pageWidth, 20);
+            }
+            pdf.save("Cotización.pdf"); // Guarda el PDF una vez que se ha agregado la imagen en cada página
+        };
+        img.onerror = function() {
+            console.error('Error al cargar la imagen.');
+        };
+    });
+            document.getElementById("cuerpo").style.backgroundColor="white"
+            Cancelar();
+        }
+
+        function Cancelar(){
+            document.getElementById("cuerpo").style.backgroundColor = "white";
+            const contenedor = document.getElementById("visualPdf");
+            document.body.removeChild(contenedor);
+        }
+    </script>
+</body>
+</html>

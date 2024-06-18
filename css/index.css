@@ -3,21 +3,112 @@ body{
     margin: 0;
     
 }
+.body-index h2,.body-index h2{
+    font-size: clamp(1em, 1.3vw, 9999vw) !important; 
+}
+.banner{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+}
+.banner-logo{
+    display: inline-block;
+}
+.banner-contacto{
+    display: inline-block;
+}
+.banner-cotiza{
+    margin-right: 20vw;
+}
 .menu-tabla{
     width: 100%;
     background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
 }
 
-td{
+.menu-tabla td{
     width: 20%;
     border-right: 2px solid white;
     text-align: center;
+    
+    
+}
+.menu-tabla a{
+    text-decoration: none !important;
     color: white;
     font-weight: bold;
+    font-size: clamp(0.5em, 1.3vw, 9999vw) !important;  
 }
-td:nth-child(5){
+.menu-tabla td:nth-child(5){
     border-right: 2px solid rgba(55, 148, 255, 0.219);
 }
+
+
+.cabecera{
+    position: sticky;
+    top: 0;
+    width: 100%; 
+    margin-bottom: 1%;   
+    background-color: white;
+    z-index: 100;
+}
+
+
+
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1em;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+}
+
+.whatsapp-float img {
+    margin-top: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.cotiza-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 140px;
+    right: 40px;
+    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    font-size: 1em;
+    font-weight: bold;
+    
+}
+
+.cotiza-float img {
+    margin-top: 15px;
+    width: 30px;
+    height: 30px;
+}
+.cotiza-float h4, .whatsapp-float h4 {
+    color: rgb(102, 102, 102);
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.986); 
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+
 .primera-imagen{
     width: 100%;
     background-image: url("../imagenes/IMG_20220821_143901.jpg");
@@ -26,17 +117,34 @@ td:nth-child(5){
     padding: 0;
     margin: 0;
 }
-.imagen-inicio{
-    padding-right: 5%;
+.imagen-inicio-text{
     color: white;
     padding-top: 15%;
     padding-bottom: 10%;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+    margin-left: 3%;
+    font-size: clamp(0.5em, 1.3vw, 9999vw) !important;  
 }
 .segundo{
     background: linear-gradient(to right, rgba(253, 48, 48, 0.219) 0%, rgba(55, 148, 255, 0.219) 100%);
 }
+.botonesTarifas a{
+    background-color: white;
+    color: blue;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid white;
+    text-decoration: none;
+}
+.masInfo table{
+    margin: auto;
+    text-align: center;
+}
+.masInfo{
+    display: none;
+}
+/*
 .imagen-inicio h2{
     font-size: clamp(1em, 2.2vw, 9999vw);    
 }
@@ -49,19 +157,199 @@ td:nth-child(5){
     font-weight: bold;
     background-color: blue;
     border-radius: 20px;
+}*/
+.circulo{
+    
+    display: inline-block;
+    justify-content: space-between;
+    text-align: center;
 }
 .circulo img{
     border-radius: 50%;
     height: 15vw;
     width: 15vw;
+    display: inline-block;
 }
 .terceros{
     color: blue;
     font-weight: bold;
+    padding: 0 5%;
+    font-size: clamp(0.5em, 1.3vw, 9999vw) ;
 }
+.img-circulo{
+    display: flex;
+
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.pie-pagina{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 10vw 2vw 10vw;
+    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    color: white;
+    font-weight: bold;
+    
+}
+.pie-pagina h1{
+    font-size: clamp(1.3em, 1.8vw, 9999vw);
+}
+.pie-pagina div{
+    display: inline-block;
+}
+.tarifas{
+    text-align: center;
+    background-color: blue;
+    color: white;
+    font-size: clamp(0.5em, 1.3vw, 9999vw) ;
+}
+.botonesTarifas div{
+    display: inline-block;
+}
+.botonesTarifas{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: auto;
+    text-align: left;
+}
+.redesPie img{
+    width: 40px;
+    height: 40px;
+}
+.redesPie a{
+    text-decoration: none !important;
+}
+.bContacto{
+    background-color: blue;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 1%;
+}
+/*
 .terceros button{
     color: white;
     font-weight: bold;
     background-color: rgb(2, 2, 119);
     border-radius: 20px;
 }
+hr{
+    background-color: blue;
+    border: 5px solid blue;
+}
+.tarifas{
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+.tarifas h1{
+    width: 100%;
+    background-color: white;
+    font-weight: 900;
+    color: blue;
+    padding: 1vw;
+}
+.tarifas .col-md-4 h3{
+    background-color:white;
+    color: blue;
+    width: fit-content;
+    padding:5px 10px 5px 10px;
+    border-radius: 10px;
+    font-weight: 900;
+}
+.pie-pagina{
+    margin-top: 3vw;
+    background: linear-gradient(to right, rgb(248, 7, 7) 0%, rgb(12, 121, 245) 100%);
+    color: white;
+    padding: 2vw 0;
+    font-size: clamp(1em, 1.5vw, 9999vw);    
+    font-weight: 700;
+}
+
+
+/*style para about*/
+/*
+.about-somos{
+    display: flex;
+    padding: 1% 3%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.about-equipo img{
+    border-radius: 50px 0 0 50px;
+    width: 100%;
+}
+.mision-vision{
+    margin-top: 2vw;
+    background-color: blue;
+    padding: 2vw 0vw;
+    color: white;
+}
+.mision, .vision{
+    text-align: center;
+    padding: 0vw 6vw;
+    font-weight: bold;
+}
+.clientes-aliados{
+    padding: 3vw 0;
+}
+.clientes{
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    width: fit-content;
+    padding: 1vw 3vw 1vw 2vw;
+    border-radius: 0 50px 50px 0;
+}
+.aliados{
+    position: absolute;
+    right: 0;
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    width: fit-content;
+    padding: 1vw 3vw 1vw 2vw;
+    border-radius:50px 0 0 50px;
+}
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-item {
+    flex: 0 0 33.333333%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .carousel-item img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .carousel-control-prev {
+    left: 1rem;
+  }
+  
+  .carousel-control-next {
+    right: 1rem;
+  }
