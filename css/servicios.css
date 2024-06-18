@@ -1,5 +1,11 @@
+:root {
+    --colorAzul: rgb(55, 148, 255);
+    --colorRojo: rgb(250, 47, 47);
+   
+}
+
 .text-izquierda{
-    background-color: blue;
+    background-color: var(--colorAzul);
     color: white;
     font-weight: 900;
     width: fit-content;
@@ -8,7 +14,7 @@
     font-size: clamp(1.3em, 2.3vw, 9999vw) ;
 }
 .text-derecha{
-    background-color: blue;
+    background-color: var(--colorAzul);
     color: white;
     font-weight: 900;
     width: fit-content;
@@ -32,16 +38,16 @@
 .servicos-tarifas{
     text-align: center;
     color: white;
-    background-color: blue;
+    background-color: var(--colorAzul);
     border-bottom: 4px solid; /* Ancho del borde */
     border-top: 4px solid;
     border-image-slice: 1; /* Utiliza toda la imagen del borde */
-    border-image-source: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    border-image-source: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
     padding: 0.5% 0;
     font-size: clamp(1.3em, 2.3vw, 9999vw) ;
 }
  button{
-    background-color: blue;
+    background-color: var(--colorAzul);
     padding: 0.5%;
     color: white;
     font-weight: bold;

@@ -1,3 +1,10 @@
+:root {
+    --colorAzul: rgb(55, 148, 255);
+    --colorRojo: rgb(250, 47, 47);
+   
+}
+
+
 .about-somos{
     width: 90%;
     margin: auto;
@@ -23,7 +30,7 @@
 }
 
 .mision-vision{
-    background-color: blue;
+    background-color: var(--colorAzul);
     display: flex;
     justify-content: space-between;
     padding: 0 5%;
@@ -40,7 +47,7 @@
     padding: 3vw 0;
 }
 .clientes{
-    background-color: blue;
+    background-color: var(--colorAzul);
     color: white;
     font-weight: 900;
     width: fit-content;
@@ -49,7 +56,7 @@
 }
 .aliados{
     
-    background-color: blue;
+    background-color: var(--colorAzul);
     color: white;
     font-weight: 900;
     width: fit-content;

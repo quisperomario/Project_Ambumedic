@@ -1,3 +1,10 @@
+:root {
+    --colorAzul: rgb(55, 148, 255);
+    --colorRojo: rgb(250, 47, 47);
+   
+}
+
+
 body{
     padding: 0;
     margin: 0;
@@ -23,7 +30,7 @@ body{
 }
 .menu-tabla{
     width: 100%;
-    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
 }
 
 .menu-tabla td{
@@ -62,7 +69,7 @@ body{
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -83,7 +90,7 @@ body{
     height: 60px;
     bottom: 140px;
     right: 40px;
-    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -171,7 +178,7 @@ body{
     display: inline-block;
 }
 .terceros{
-    color: blue;
+    color: var(--colorAzul);
     font-weight: bold;
     padding: 0 5%;
     font-size: clamp(0.5em, 1.3vw, 9999vw) ;
@@ -188,7 +195,7 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 2vw 10vw 2vw 10vw;
-    background: linear-gradient(to right, rgb(250, 47, 47) 0%, rgb(55, 148, 255) 100%);
+    background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
     color: white;
     font-weight: bold;
     
@@ -201,7 +208,7 @@ body{
 }
 .tarifas{
     text-align: center;
-    background-color: blue;
+    background-color: var(--colorAzul);
     color: white;
     font-size: clamp(0.5em, 1.3vw, 9999vw) ;
 }
@@ -223,7 +230,7 @@ body{
     text-decoration: none !important;
 }
 .bContacto{
-    background-color: blue;
+    background-color: var(--colorAzul);
     border-radius: 20px;
     text-decoration: none;
     color: white;

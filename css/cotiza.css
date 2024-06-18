@@ -1,3 +1,10 @@
+:root {
+    --colorAzul: rgb(55, 148, 255);
+    --colorRojo: rgb(250, 47, 47);
+   
+}
+
+
 .principal{
     width: 80%;
     margin: auto;
@@ -71,7 +78,7 @@
 }
 
 .error {
-    background-color: red;
+    background-color: var(--colorRojo);
     color: white;
 }
 .tooltip {
