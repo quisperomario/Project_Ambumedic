@@ -16,8 +16,9 @@ body{
 .banner{
     display: flex;
     justify-content: space-between;
-    height: 10vh;
+    height: 15vh;
     align-items: center;
+    padding-left: 2vw;
 }
 .banner-logo{
     display: inline-block;
@@ -34,6 +35,7 @@ body{
 }
 
 .menu-tabla td{
+    height: 5vh;
     width: 20%;
     border-right: 2px solid white;
     text-align: center;
@@ -118,8 +120,8 @@ body{
 
 .primera-imagen{
     width: 100%;
-    background-image: url("../imagenes/IMG_20220821_143901.jpg");
-    background-size: 100%;
+    background-image: url("../imagenes/nosotros.jpeg");
+    background-size: 100% 120%;
     background-repeat: no-repeat;
     padding: 0;
     margin: 0;
@@ -134,7 +136,7 @@ body{
     font-size: clamp(0.5em, 1.3vw, 9999vw) !important;  
 }
 .segundo{
-    background: linear-gradient(to right, rgba(253, 48, 48, 0.219) 0%, rgba(55, 148, 255, 0.219) 100%);
+    background: linear-gradient(to right, rgba(146, 30, 30, 0.459) 0%, rgba(55, 148, 255, 0.219) 100%);
 }
 .botonesTarifas a{
     background-color: white;
