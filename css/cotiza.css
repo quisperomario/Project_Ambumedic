@@ -52,6 +52,22 @@
     box-shadow: 0px 5px 10px 0px rgba(41, 41, 41, 0.452); 
     
 }
+.flex{
+    display: none;
+}
+.fechaSerial table{
+    width: 100%;
+    text-align: right;
+    
+}
+.cliente{
+    text-align: center;
+    margin-top: 5%;
+}
+.cliente h2{
+    margin: 0;
+}
+
 
 #dynamicTable, #tablePdf {
     width: 100%;
@@ -108,9 +124,13 @@
     z-index: 1000; /* High z-index to appear above all */
 }
 .contenidoPdf {
+
     margin: 7% 7% 0 7%;
     padding: 5% 7% 7% 7%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+}
+.contenidoPdf li{
+    text-align: justify;
 }
 .bImprimir, .bCancelar {
     width: 30%;

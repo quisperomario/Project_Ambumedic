@@ -46,31 +46,37 @@
                 <label class="block text-zinc-700 text-sm font-bold mb-2" for="attention">
                     Atención:
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="attention" type="text" placeholder="Juan Diego">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="cliente" type="text" placeholder="Juan Diego">
             </div>
             <div class="mb-4 col-md-4">
                 <label class="block text-zinc-700 text-sm font-bold mb-2" for="phone">
-                    Teléfono:
+                    Serial Consecutivo:
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="7652-8888">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="serial" type="number" placeholder="057">
             </div>
             <div class="col-md-4">
                 <label class="block text-zinc-700 text-sm font-bold mb-2" for="service">
-                    Servicios:
+                    Lugar del Evento:
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="service" type="text" placeholder="Servicios">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="lugar" type="text" placeholder="Lugar del Evento">
             </div>
             <div class="col-md-4">
                 <label class="block text-zinc-700 text-sm font-bold mb-2" for="servicePhone">
-                    Teléfono:
+                    Fecha del Evento:
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="servicePhone" type="text" placeholder="2222-2222">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="fechaEvento" type="date" >
             </div>
             <div class="mb-4 col-md-4">
                 <label class="block text-zinc-700 text-sm font-bold mb-2" for="email">
-                    Correo Electronico:
+                    Hora de Inicio:
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="info@invertermijor.com">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="horaInicio" type="time" >
+            </div>
+            <div class="mb-4 col-md-4">
+                <label class="block text-zinc-700 text-sm font-bold mb-2" for="email">
+                    Hora de Finalización:
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="horaFin" type="time" >
             </div>
         </div>
         <hr>
@@ -128,7 +134,7 @@
      
     
     
-    <div class="pie-pagina ">
+    <div class="pie-pagina" id="contenPie">
         
         <div class=" pie-1"> 
             <h1>Contáctanos</h1>
@@ -312,6 +318,21 @@
             }
         }
 
+        function obtenerFechaActual() {
+            const meses = [
+                "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO",
+                "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"
+            ];
+
+            const fecha = new Date();
+            const dia = fecha.getDate();
+            const mes = meses[fecha.getMonth()];
+            const anio = fecha.getFullYear();
+
+            return `${dia} de ${mes} de ${anio}`;
+        }
+        
+
         function generatePDF() {
             let content2 = '<table id="tablePdf">';
             const table = document.getElementById('dynamicTable');
@@ -337,10 +358,28 @@
             const startRow = 0; // Índice de la fila de inicio (0-based)
             const endRow = 3; // Índice de la fila final (0-based)
 
-            
-           
+            const serial=document.getElementById("serial").value;
+            const cliente=document.getElementById("cliente").value;
+            const fechaActual=obtenerFechaActual();
+            const year=new Date().getFullYear();
+            const lugar=document.getElementById("lugar").value;
+            const fechaEvento=document.getElementById("fechaEvento").value;
+            const horaInicio=document.getElementById("horaInicio").value;
+            const horaFin=document.getElementById("horaFin").value;
             const content = `
+            
                 <div class="contenidoPdf" id="contenidoPdfFull">
+                    <div class="fechaSerial">
+                        <table>
+                            <tr><td>COTIZACION N.º ${serial} DEL ${year}</td>
+                            <td>${fechaActual}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="cliente">
+                            <p contentEditable = "true">Señores:</p>
+                            <h3>${cliente}</h3>                        
+                    </div>
                     Cordial saludo
                     <br/>
                     <br/>
@@ -350,17 +389,33 @@
                     <p class="presentacion">
                     La empresa AmbuMedic sas con NIT. 901526457-9 domicilio en Medellín y a quien represento. Se dedica a la prestación de servicios de ambulancia de baja complejidad habilitados con la resolución 3100 ante la Dirección seccional de salud de Antioquia y Atención prehospitalaria para el cubrimiento de proyectos, atenciones y eventos privados, así como acompañamiento en caminatas, senderismos, viajes y eventos deportivos (todas sus modalidades).
                     </p>
+                    <b>LUGAR: </b>${lugar}<b> FECHA: </b>${fechaEvento}<b> HORARIO: </b> DE ${horaInicio} HASTA LAS ${horaFin} DEL DÍA.
+                    <p>AmbuMedic sas contará con los siguientes recursos de acuerdo a su necesidad para el
+evento.</p>
                     ${content2}
-                    <h2>Condiciones y Anotaciones</h2>
-                    <p>Las condiciones de esta cotización son las siguientes:</p>
+                    
                     <ul>
-                        <li>Validez: 30 días a partir de la fecha de emisión.</li>
-                        <li>Pago: 50% por adelantado y 50% al finalizar el trabajo.</li>
-                        <li>Incluye impuestos y otros cargos aplicables.</li>
+                        <li>Para confirmar el servicio Se deberá cancelar el 50% 5 dias antes del evento y 50% al inicio del
+mismo o en acuerdo al contrato de convenio. De lo contrario no se garantiza la disponibilidad para
+el mismo.</li></ul><ul>
+                        <li><b>Consignar en la cuenta de ahorros BANCOLOMBIA N° 62500001687 a Nombre de AMBUMEDIC sas.</b></li>
+                        <li>La factura Electrónica se elabora una vez finalizado el servicio en su totalidad o en acuerdo por las
+partes. En caso de generar horas extras se facturan al mismo valor hora contratada.</li></ul><ul>
+                        <li>Nuestros equipos médicos y biomédicos se encuentran en constante supervisión y mantenimiento
+para garantizar una óptima prestación del servicio a nuestros clientes y usuarios.</li></ul><ul>
+                        <li>Entendemos las necesidades propias del servicio y hemos ajustado la cotización a sus
+condiciones propiamente, según lo hablado y solo para ustedes.</li></ul><ul>
+                        <li>Nuestro personal cuenta con seguro y afiliación al sistema de riegos laborales. Se debe garantizar
+su alimentación o lugar de trabajo de ser necesaria o en acuerdo de las partes según el contrato de
+convenios.</li></ul><ul>
+                        <li>Se debe enviar junto con esta cotización firmada en caso de ser aprobada, copia del Rut para
+facturación y creación de cliente (de ser primera vez)</li></ul><ul>
                     </ul>
                     <div class="section" id="signature">
+                        <p>Cualquier inquietud será atendida con gusto en los teléfonos y/o e-mail en pie de página.<br/><br/><br/>
+Cordialmente,</p>
                         <p>Firma:</p>
-                        <p class="firma">Santiago</p>
+                        <p class="firma" contentEditable = "true";>Santiago Muñetón Londoño</p>
                     </div>
                     </div>
                     <div class="botones">
@@ -390,7 +445,7 @@
             const bgImg = new Image();
             bgImg.src = backgroundImage;
             const opt = {
-                margin:       [10, 0, 30, 0], // Margins: top, left, bottom, right
+                margin:       [25, 0, 30, 0], // Margins: top, left, bottom, right
                 filename:     'Cotización.pdf',
                 image:        { type: 'png', quality: 0.98 },
                 html2canvas:  { scale: 2 },
@@ -405,15 +460,23 @@
     .then(pdf => {
         const totalPages = pdf.internal.getNumberOfPages();
         const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
-        const imgData = 'https://laguitarraflamenca.net/wp-content/uploads/2021/11/SI7-PRIMERA.png';
+        const pageHeight = pdf.internal.pageSize.getHeight();        
+        const imgData = 'https://i.ibb.co/bmWsSfy/baner-pdf.png';
         const img = new Image();
         img.crossOrigin = 'Anonymous'; // Para evitar problemas de CORS
         img.src = imgData;
+        const pieText = "Telefono: (604) 603 5115 - 302 270 3568         Correo: ambumedic01@gmail.com";
+        console.log(pieText); 
         img.onload = function() {
             for (let i = 1; i <= totalPages; i++) {
+
+            // Dibujar el rectángulo del fondo del pie de página
                 pdf.setPage(i); // Configura la página actual
                 pdf.addImage(img, 'PNG', 0, 0, pageWidth, 20);
+                //pdf.addImage(img, 'PNG', 0, pageHeight - 20, pageWidth, 20);
+                pdf.setFontSize(10);
+                
+            pdf.text(pieText, pageWidth / 2 - pdf.getTextWidth(pieText) / 2, pageHeight - 6);
             }
             pdf.save("Cotización.pdf"); // Guarda el PDF una vez que se ha agregado la imagen en cada página
         };
