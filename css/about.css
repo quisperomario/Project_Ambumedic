@@ -11,11 +11,13 @@
 
 }
 .about-text{
-    width: 35%;
+    width: 40%;
     padding: 0 2vw;
     text-align: center;
     font-size: clamp(1.3em, 2vw, 9999vw) !important; 
    
+}
+.frase{
 }
 .about-img{
     width: 65%;

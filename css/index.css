@@ -70,11 +70,11 @@ body{
 
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     bottom: 40px;
     right: 40px;
-    background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
+    background-color: #25d366;
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -85,14 +85,14 @@ body{
 
 .whatsapp-float img {
     margin-top: 15px;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 .cotiza-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     bottom: 140px;
     right: 40px;
     background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
@@ -108,8 +108,8 @@ body{
 
 .cotiza-float img {
     margin-top: 15px;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 .cotiza-float h4, .whatsapp-float h4 {
     color: rgb(102, 102, 102);
@@ -203,13 +203,25 @@ body{
     background: linear-gradient(to right, var(--colorRojo) 0%, var(--colorAzul) 100%);
     color: white;
     font-weight: bold;
+    font-size: clamp(1em,1.5vw, 9999vw);
     
 }
 .pie-pagina h1{
-    font-size: clamp(1.3em, 1.8vw, 9999vw);
+    font-size: clamp(1.3em, 2vw, 9999vw);
 }
 .pie-pagina div{
     display: inline-block;
+}
+
+.pie-pagina .logo{
+    width: 15%;
+}
+.pie-pagina .logo img{
+    width: 100%;
+}
+
+.imagenAmbulancia img{
+    width: 100%;
 }
 .tarifas{
     text-align: center;
@@ -228,8 +240,8 @@ body{
     text-align: left;
 }
 .redesPie img{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 .redesPie a{
     text-decoration: none !important;

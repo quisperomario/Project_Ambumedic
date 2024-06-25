@@ -145,6 +145,6 @@
     text-align: justify;
 }
 .firma{
-    border-bottom: 2px solid black;
-    width:  fit-content;
+    margin: auto;
+    width: 30%;
 }
