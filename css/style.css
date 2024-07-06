@@ -11,6 +11,7 @@
     box-shadow: 0px 5px 10px 0px rgba(41, 41, 41, 0.452); 
 }
 
+
 .carousel-inner {
     display: flex;
     width: calc(100% * 9 /9); /* (Número de items / Items visibles) */

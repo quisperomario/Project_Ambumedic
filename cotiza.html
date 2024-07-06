@@ -336,21 +336,40 @@
         function generatePDF() {
             let content2 = '<table id="tablePdf">';
             const table = document.getElementById('dynamicTable');
+
             for (let row of table.rows) {
                 content2+='<tr>';
                 const cells = row.cells;
                 for (let j = 0; j < cells.length-1; j++) {
                     if(cells[j].innerText=='TOTAL:'){
-                        console.log("entra a total"+cells[j+1].innerText)
                         content2 += '<td colspan="3" class="total">'+cells[j].innerText + '</td> ';
                         content2 += '<td colspan="3" class="total">'+cells[j+1].innerText + '</td> ';
                         break;
                     }
-                    else
-                    content2 += '<td>'+cells[j].innerText + '</td> ';
+                    else{
+                        const numberRegex = /^\d+$/;
+                        if (numberRegex.test(cells[j].innerText)) {
+                            if(j==2){
+                                content2 += '<td> $ '+format(parseFloat(cells[j].innerText))+'</td>';
+                            }
+                            else{
+                                content2 += '<td>'+cells[j].innerText + '</td> ';
+                            }
+                        } else {
+                            if (cells[j].innerText.indexOf('$ ') >= 0){
+                                content2 += '<td> $ '+format(parseFloat(cells[j].innerText.replace("$ ", ""))) + '</td> ';
+                            }
+                            else
+                                content2 += '<td>'+cells[j].innerText + '</td> ';
+                        }
+                        
+                    }
+                    
                 }
                 content2 += '</tr>';
             }
+
+
             content2+='</table>';
             //document.getElementById("accionOculto").classList.add('accionOculto');
             const tableSection = document.getElementById('table-section').innerHTML;
@@ -415,8 +434,7 @@ facturación y creación de cliente (de ser primera vez)</li></ul><ul>
                         <p>Cualquier inquietud será atendida con gusto en los teléfonos y/o e-mail en pie de página.<br/><br/><br/>
 Cordialmente,</p>
                         <p>Firma:</p>
-                        <p class="firma" contentEditable = "true";>Santiago Muñetón Londoño</p>
-                        <!-- <center> <img src="imagenes/firma.jpeg" class="firma"></center> !-->
+                        <center> <img src="imagenes/firma.jpeg" class="firma"></center>
                     </div>
                     
                     </div>
@@ -447,11 +465,11 @@ Cordialmente,</p>
             const bgImg = new Image();
             bgImg.src = backgroundImage;
             const opt = {
-                margin:       [25, 0, 30, 0], // Margins: top, left, bottom, right
+                margin:       [0, 0, 30, 0], // Margins: top, left, bottom, right
                 filename:     'Cotización.pdf',
                 image:        { type: 'png', quality: 0.98 },
                 html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait' },
                 pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
             };
             html2pdf()                
@@ -462,13 +480,24 @@ Cordialmente,</p>
     .then(pdf => {
         const totalPages = pdf.internal.getNumberOfPages();
         const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();        
-        const imgData = 'https://i.ibb.co/bmWsSfy/baner-pdf.png';
+        const pageHeight = pdf.internal.pageSize.getHeight();  
+
+        //const imgData = 'https://i.ibb.co/bmWsSfy/baner-pdf.png';
+        const imgData = 'imagenes/bannerPDF.png';
         const img = new Image();
         img.crossOrigin = 'Anonymous'; // Para evitar problemas de CORS
         img.src = imgData;
-        const pieText = "Telefono: (604) 603 5115 - 302 270 3568         Correo: ambumedic01@gmail.com";
+        //const pieText = "Telefono: (604) 603 5115 - 302 270 3568         Correo: ambumedic01@gmail.com";
+        const pieText = "";
         console.log(pieText); 
+
+
+        //imagen 2
+        const imgData2 = 'imagenes/piepagina.jpeg';
+        const img2 = new Image();
+        img2.crossOrigin = 'Anonymous'; // Para evitar problemas de CORS
+        img2.src = imgData2;
+
         img.onload = function() {
             for (let i = 1; i <= totalPages; i++) {
 
@@ -478,13 +507,33 @@ Cordialmente,</p>
                 //pdf.addImage(img, 'PNG', 0, pageHeight - 20, pageWidth, 20);
                 pdf.setFontSize(10);
                 
-            pdf.text(pieText, pageWidth / 2 - pdf.getTextWidth(pieText) / 2, pageHeight - 6);
+            //pdf.text(pieText, pageWidth / 2 - pdf.getTextWidth(pieText) / 2, pageHeight - 6);
             }
-            pdf.save("Cotización.pdf"); // Guarda el PDF una vez que se ha agregado la imagen en cada página
+            //pdf.save("Cotización.pdf"); // Guarda el PDF una vez que se ha agregado la imagen en cada página
         };
         img.onerror = function() {
             console.error('Error al cargar la imagen.');
         };
+
+
+        img2.onload = function() {
+            for (let i = 1; i <= totalPages; i++) {
+
+            // Dibujar el rectángulo del fondo del pie de página
+                pdf.setPage(i); // Configura la página actual
+                
+                //pdf.addImage(img2, 'PNG', 0, 0, pageWidth, 20);
+                pdf.addImage(img2, 'PNG', 0, pageHeight - 20, pageWidth, 20);
+                pdf.setFontSize(10);
+                
+            //pdf.text(pieText, pageWidth / 2 - pdf.getTextWidth(pieText) / 2, pageHeight - 6);
+            }
+            pdf.save("Cotización.pdf"); // Guarda el PDF una vez que se ha agregado la imagen en cada página
+        };
+        img2.onerror = function() {
+            console.error('Error al cargar la imagen.');
+        };
+
     });
             document.getElementById("cuerpo").style.backgroundColor="white"
             Cancelar();

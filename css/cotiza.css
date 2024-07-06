@@ -119,7 +119,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%;
+    height: auto;
     background-color: rgb(173, 173, 173); /* Semi-transparent overlay */
     z-index: 1000; /* High z-index to appear above all */
 }
@@ -148,3 +148,4 @@
     margin: auto;
     width: 30%;
 }
+
