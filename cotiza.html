@@ -467,9 +467,9 @@ Cordialmente,</p>
             const opt = {
                 margin:       [0, 0, 30, 0], // Margins: top, left, bottom, right
                 filename:     'Cotización.pdf',
-                image:        { type: 'png', quality: 0.98 },
+                image:        { type: 'png', quality: 0.8 },
                 html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait' },
+                jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait', compressPDF: true  },
                 pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
             };
             html2pdf()                
