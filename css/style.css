@@ -11,11 +11,10 @@
     box-shadow: 0px 5px 10px 0px rgba(41, 41, 41, 0.452); 
 }
 
-
 .carousel-inner {
     display: flex;
-    width: calc(100% * 9 /9); /* (Número de items / Items visibles) */
-    animation: slide 10s linear infinite;
+    width: calc(100% * 13 /13); /* (Número de items / Items visibles) */
+    animation: slide 15s linear infinite;
 }
 
 .carousel-item {
@@ -34,5 +33,5 @@
 
 @keyframes slide {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-200%); } /* Ajuste según la cantidad de elementos visibles */
+    100% { transform: translateX(-333.3%); } /* Ajuste según la cantidad de elementos visibles */
 }
