@@ -124,6 +124,7 @@ body{
 .primera-imagen{
     width: 100%;
     background-image: url("../imagenes/nosotros.jpeg");
+    background-image: url("../imagenes/nosotros2.png");
     background-size: 100% 120%;
     background-repeat: no-repeat;
     padding: 0;
